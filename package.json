@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Folawewo/publice/issues"
   },
-  "homepage": "https://github.com/Folawewo/publice#readme"
+  "homepage": "https://github.com/Folawewo/publice#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.2"
+  }
 }
