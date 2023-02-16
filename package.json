@@ -1,0 +1,19 @@
+{
+  "name": "publice",
+  "version": "1.0.0",
+  "description": "Blog API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Folawewo/publice.git"
+  },
+  "author": "Folawewo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Folawewo/publice/issues"
+  },
+  "homepage": "https://github.com/Folawewo/publice#readme"
+}
