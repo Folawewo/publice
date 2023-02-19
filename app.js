@@ -65,6 +65,9 @@ app.post('/posts', async (req, res) => {
 
 app.put('/posts/:id', async (req, res) => {
   const { title, content } = req.body;
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    return res.status(400).json({ error: 'Invalid post ID' });
+  }
   const post = await BlogPost.findByIdAndUpdate(
     req.params.id,
     { title, content },
