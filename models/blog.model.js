@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const BlogPost = mongoose.model('BlogPost', {
     title: String,
-    body: String
+    content: String
 });
 
 module.exports = BlogPost;
