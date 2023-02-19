@@ -74,8 +74,8 @@ app.put('/posts/:id', async (req, res) => {
 });
 
 app.delete('/posts/:id', async (req, res) => {
-    await BlogPost.findOneAndRemove(req.params.id)
-    res.json
-})
+  await BlogPost.findOneAndRemove(req.params.id);
+  res.json({ message: 'Post deleted' });
+});
 
 module.exports = app;
