@@ -28,19 +28,15 @@ app.get('/posts', async (req, res) => {
 });
 
 app.get('/posts/:id', async (req, res) => {
+  const id = req.params.id;
   try {
-    const post = req.params.id;
-    if (!mongoose.Types.ObjectId.isValid(post)) {
-      return res.status(400).json({ error: 'Invalid ID' });
-    }
-
-    await post.findById(post);
+    const post = await BlogPost.findById(id);
 
     if (!post) {
-      return res.status(404).json({ error: 'Post not found' });
+      res.status(404).json({ error: 'Post not found' });
+    } else {
+      res.json(post);
     }
-
-    res.json(post);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Server error' });
@@ -52,7 +48,19 @@ app.post('/posts', async (req, res) => {
     if (!req.body.title || !req.body.content) {
       return res.send.status(404).json({ error: 'Invalid request data' });
     }
-  } catch (error) {}
+
+    const post = new BlogPost({
+      title: req.body.title,
+      content: req.body.content,
+    });
+
+    await post.save();
+
+    res.json(post);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
 });
 
 module.exports = app;
