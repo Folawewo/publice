@@ -63,4 +63,19 @@ app.post('/posts', async (req, res) => {
   }
 });
 
+app.put('/posts/:id', async (req, res) => {
+  const { title, content } = req.body;
+  const post = await BlogPost.findByIdAndUpdate(
+    req.params.id,
+    { title, content },
+    { new: true }
+  );
+  res.json(post);
+});
+
+app.delete('/posts/:id', async (req, res) => {
+    await BlogPost.findOneAndRemove(req.params.id)
+    res.json
+})
+
 module.exports = app;
