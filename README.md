@@ -43,7 +43,7 @@ The API supports JSON input and output. For example, to create a new blog post, 
 ```json
 {
   "title": "My First Blog Post",
-  "content": "This my firts Blog Post and I am excited."
+  "content": "This my First Blog Post and I am excited."
 }
 ```
 
